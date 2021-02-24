@@ -5,10 +5,6 @@ output:
         toc: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ![](banner.jpg)
 
 ***  
@@ -63,3 +59,51 @@ Package | What it can help you do | Cheatsheets
 `rmarkdown` | generating markdown documents | [pdf](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)  
 `R studio*` | how to use R Studio (*not a package) | [pdf](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)  
 
+***  
+
+## Importing a dataset  
+
+In SAS, when importing a dataset, your would code like this:  
+
+```{}
+proc import out = jeopardy
+            datafile = "/Users/jonbrock/Downloads/jeopardy.xlsx
+            dbms = excel replace;
+run;
+```
+
+Using R, you will need to use a specific function to import data depending upon the file type. In this case, we are importing an `xlsx` file and will need to use both a specific package (`readxl`) and function (`read_xlsx()`). The package reference guide is [here](https://readxl.tidyverse.org/reference/index.html).  
+
+```{r data import - dirty}
+# Import the .xlsx file
+jeopardy <- readxl::read_xlsx('./data/jeopardy.xlsx')
+
+# Print the first ten observations in the dataset
+head(jeopardy)
+```
+
+Great! We know that our data was imported correctly. But it sure does look messy! Let's tidy this a bit. Let's run the same import code but clean up the variable names using `janitor::clean_names()`.   
+
+```{r data import - clean}
+# Import the .xlsx file
+jeopardy <- readxl::read_xlsx('./data/jeopardy.xlsx') %>% 
+    janitor::clean_names()
+
+# Print the first ten observations in the dataset
+head(jeopardy)
+```
+
+We've now cleaned our variable names to remove any punctuation or spaces, which are things that will make your life a nightmare as you develop more code.  If we wanted to see what the variables names are, or get a quick "glimpse" at our variables, their data types, and the first few observations, we can run the following codes as needed:  
+
+```{r data inspection}
+# View variable names
+names(jeopardy)
+
+# Glimpse part of the dataset
+glimpse(jeopardy)
+
+# View the structure of the dataset
+str(jeopardy)
+```
+
+***  

@@ -1,0 +1,76 @@
+SAS vs. R - An Introduction
+================
+
+-   [Loading Packages](#loading-packages)
+
+![](banner.jpg)
+
+------------------------------------------------------------------------
+
+Welcome! This training is intended for those individuals who have
+experience performing data cleaning and analysis in SAS, but want to
+learn and develop similar skills in R. Get ready to have fun!
+
+Here are some key things that you need to know about R:
+
+1.  It is an object-oriented environment.  
+2.  It can be run by itself, but most people use an IDE, such as R
+    Studio, for easier work flows.  
+3.  It can utilize many different `packages` that contain their own set
+    of functions.  
+4.  It is open-source and free!
+
+I’m going to teach you to use R based on a “tidy” mindset, as
+popularized by Hadley Wickham. His book, **R for Data Science**, is an
+invaluable resource and is also free [online](https://r4ds.had.co.nz/).
+The diagram below illustrates the general work flow for keeping your
+code tidy.
+
+![](https://rstudio-education.github.io/tidyverse-cookbook/images/data-science-workflow.png)
+
+Let’s jump right into it!
+
+------------------------------------------------------------------------
+
+## Loading Packages
+
+First, you’ll want to load your required packages for you to do your
+work. You load your packages individually by using the R function
+`library()`. To start, we will only use one package: `tidyverse`.
+
+``` r
+library(tidyverse)
+```
+
+If you do not have the `tidyverse` package installed, or any other
+package you may need, you can install the package using the function
+`install.package()` and typing `"package name"` inside the parentheses.
+Be sure to include double-quotation marks around the package name.
+
+The great thing about the `tidyverse` package is that it includes a
+bundle of eight packages commonly used for data importing, wrangling,
+and visualizing.
+
+The eight packages are:
+
+| Package   | What it can help you do                      |                                     Cheatsheets                                     |
+|-----------|----------------------------------------------|:-----------------------------------------------------------------------------------:|
+| `ggplot2` | plotting/visualizations                      | [pdf](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) |
+| `tibble`  | working with tibbles (a type of data frame)  |                                         N/A                                         |
+| `tidyr`   | data cleaning                                |                                         N/A                                         |
+| `readr`   | importing different data types               |      [pdf](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)       |
+| `purrr`   | iterations and repeated tasks                |         [pdf](https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf)          |
+| `dplyr`   | data cleaning and manipulation               |  [pdf](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)   |
+| `stringr` | working with character (or string) variables |        [pdf](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)         |
+| `forcats` | working with factor variables                |        [pdf](https://github.com/rstudio/cheatsheets/raw/master/factors.pdf)         |
+
+There are other cheatsheets available
+[here](https://rstudio.com/resources/cheatsheets/). Three other
+cheatsheets that will be of particular value to you as a new user of R
+include:
+
+| Package     | What it can help you do               |                                Cheatsheets                                 |
+|-------------|---------------------------------------|:--------------------------------------------------------------------------:|
+| `lubridate` | working with times and dates          |   [pdf](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)   |
+| `rmarkdown` | generating markdown documents         | [pdf](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) |
+| `R studio*` | how to use R Studio (\*not a package) |  [pdf](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)  |
